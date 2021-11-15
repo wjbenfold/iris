@@ -84,10 +84,13 @@ This document explains the changes made to Iris for this release
 #. `@bsherratt`_ added a `threshold` parameter to
    :meth:`~iris.cube.Cube.intersection` (:pull:`4363`)
 
+#. `@wjbenfold`_ added test data to ci benchmarks so that it is accessible to
+   benchmark scripts. Also added a regridding benchmark that uses this data
+   (:pull:`4402`)
+
 
 🐛 Bugs Fixed
 =============
-
 
 #. `@rcomer`_ fixed :meth:`~iris.cube.Cube.intersection` for special cases where
    one cell's bounds align with the requested maximum and negative minimum, fixing
@@ -105,6 +108,14 @@ This document explains the changes made to Iris for this release
    parameter inverse_flattening = 0 (:issue: `4146`, :pull:`4348`)
 
 #. `@pdearnshaw`_ fixed an error in the call to :class:`cftime.datetime` in mod:`~iris.fileformats.pp_save_rules` that prevented the saving to PP of climate means for DJF (:pull:`4391`)
+
+#. `@wjbenfold`_ improved the error message for failure of :meth:`~iris.cube.CubeList.concatenate`
+   to indicate that the value of a scalar coordinate may be mismatched, rather than the metadata
+   (:issue:`4096`, :pull:`4387`)
+
+#. `@bsherratt`_ fixed a regression to the NAME file loader introduced in 3.0.4,
+   as well as some long-standing bugs with vertical coordinates and number
+   formats. (:pull:`4411`)
 
 
 💣 Incompatible Changes
