@@ -184,7 +184,7 @@ This document explains the changes made to Iris for this release
 #. `@wjbenfold`_ deprecated :mod:`iris.fileformats.abf` and
    :mod:`iris.fileformats.dot`as they are not believed to still be in use. The
    deprecation warnings invite users to contact the Iris Developers if this
-   isn't the case. (:pull:`XXXX`)
+   isn't the case. (:pull:`4515`)
 
 
 🔗 Dependencies
