@@ -45,6 +45,10 @@ This document explains the changes made to Iris for this release
 #. `@rcomer`_ enabled passing of scalar objects to :func:`~iris.plot.plot` and 
    :func:`~iris.plot.scatter`. (:pull:`4616`)
 
+#. `@wjbenfold`_ prevented an ``AttributeError`` being logged to ``stderr`` when
+   a `~iris.fileformats.cf.CFReader` that fails to initialise is garbage
+   collected. (:issue:`3312`, :pull:`4646`)
+
 
 💣 Incompatible Changes
 =======================
