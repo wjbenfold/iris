@@ -1044,7 +1044,6 @@ class CFReader:
     CFGroup = CFGroup
 
     def __init__(self, filename, warn=False, monotonic=False):
-        self._dataset = None
         self._filename = os.path.expanduser(filename)
 
         #: Collection of CF-netCDF variables associated with this netCDF file
@@ -1296,8 +1295,10 @@ class CFReader:
 
     def __del__(self):
         # Explicitly close dataset to prevent file remaining open.
-        if self._dataset is not None:
+        try:
             self._dataset.close()
+        except AttributeError:
+            pass
 
 
 def _getncattr(dataset, attr, default=None):
