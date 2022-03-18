@@ -1049,6 +1049,8 @@ class CFReader:
         #: Collection of CF-netCDF variables associated with this netCDF file
         self.cf_group = self.CFGroup()
 
+        # Ensure we have a `._dataset` property, even if the following fails...
+        self._dataset
         self._dataset = netCDF4.Dataset(self._filename, mode="r")
 
         # Issue load optimisation warning.
@@ -1295,10 +1297,8 @@ class CFReader:
 
     def __del__(self):
         # Explicitly close dataset to prevent file remaining open.
-        try:
+        if self._dataset is not None:
             self._dataset.close()
-        except AttributeError:
-            pass
 
 
 def _getncattr(dataset, attr, default=None):
