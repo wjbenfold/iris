@@ -3,7 +3,7 @@
 .. _iris_whatsnew:
 
 What's New in Iris
-------------------
+******************
 
 .. include:: latest.rst
 
